@@ -1,0 +1,27 @@
+#!/bin/sh
+
+export scriptdir=`pwd`
+
+export fcdate=`date -u +%Y%m%d`
+
+
+
+scratchdir=/tmp/
+
+export DATADIR=silam-dl
+export email="test-ukr-pollen"
+
+export gradsnc=`which grads`
+
+export publish=false
+
+# Geometry depends on the picture Upper-leftcorner of logo with respect
+# to upper-left corner of a picture 
+export PUTLOGOCMD="composite  -geometry  +77+465  $scriptdir/scale.png"
+# Special logo for aqi and pollen index pictures
+export PUTLOGOCMDINDEX="$PUTLOGOCMD"
+
+#export outsuff=""
+export suitename="UKR-pollen"
+
+export OUTPUT_DIR=${scriptdir}/output-${suitename}
