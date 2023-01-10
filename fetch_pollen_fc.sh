@@ -35,7 +35,7 @@ URL="https://silam.fmi.fi/thredds/ncss/silam_europe_pollen_v5_8/runs/silam_europ
 
 if [ ! -f $outf ]; then
   subset="&maxy=0&minx=12&maxx=28&miny=-15"
-  wget  "$URL?var=${varlist}${subset}&horizStride=1&time_start=${startdate}&time_end=${enddate}&timeStride=1&vertCoord=1&accept=netcdf4&email=$email" -O ${outf}-tmp.nc
+  wget --no-check-certificate "$URL?var=${varlist}${subset}&horizStride=1&time_start=${startdate}&time_end=${enddate}&timeStride=1&vertCoord=1&accept=netcdf4&email=$email" -O ${outf}-tmp.nc
 
   # Some attributes are just bulky, coordinates, pole_lat, and  pole_lon confuse python reader and cdo
   attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a History,global,d,,, -a history_of_appended_files,global,d,,, -a SIMULATION_START_DATE,global,c,c,$run, -a coordinates,,d,,, -a pole_lat,global,d,,, -a pole_lon,global,d,,, " 
