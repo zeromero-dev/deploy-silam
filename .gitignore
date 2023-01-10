@@ -128,5 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-output-UKR-pollen/webloads/*
-www
+.output-UKR-pollen/webloads/*
+.www
