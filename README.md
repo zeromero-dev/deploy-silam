@@ -12,5 +12,5 @@ After sucessfull run it'll output all images in `/output-UKR-pollen/webloads` an
 - `docker build . -t "silam"`
 - `docker run -it -v /your/directory:/output-UKR-pollen/webloads silam bash solution.sh`
 
-Modified by Roman Holubenko
+##### Modified by Roman Holubenko
 All credits to [SILAM](https://silam.fmi.fi/)
