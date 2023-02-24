@@ -10,7 +10,7 @@ After sucessfull run it'll output all images in `/output-UKR-pollen/webloads` an
 - `git clone git@github.com:zeromero-dev/deploy-silam.git`
 - `cd ./deploy-silam`
 - `docker build . -t "silam"`
-- `docker run -it -v /your/directory:/output-UKR-pollen/webloads silam bash solution.sh`
-- **optional** to delete container after run recomend you to use `--rm` tag
+- `docker run -it --rm -v ${PWD}:/SILAM silam bash solution.sh`
+
 ##### Modified by Roman Holubenko
 All credits to [SILAM](https://silam.fmi.fi/)
