@@ -26,7 +26,7 @@ varlist="cnc_POLLEN_ALDER_m22,cnc_POLLEN_BIRCH_m22,cnc_POLLEN_GRASS_m32,cnc_POLL
 run=`date -u -d $basedate +"%FT00:00:00Z"`
 startdate=`date -u -d $basedate +"%FT01:00:00Z"`
 enddate=`date -u -d "120 hours $basedate" +"%FT00:00:00Z"`
-version="v5_8_2"
+version="v5_9"
 URL="https://silam.fmi.fi/thredds/ncss/silam_europe_pollen_${version}/runs/silam_europe_pollen_${version}_RUN_${run}"
 ##https://silam.fmi.fi/thredds/ncss/silam_europe_pollen_v5_8_1/runs/silam_europe_pollen_v5_8_1_RUN_2022-07-10T00:00:00Z?var=cnc_POLLEN_ALDER_m22&var=cnc_POLLEN_BIRCH_m22&var=cnc_POLLEN_GRASS_m32&var=cnc_POLLEN_MUGWORT_m18&var=cnc_POLLEN_OLIVE_m28&var=cnc_POLLEN_RAGWEED_m18&horizStride=1&time_start=2022-07-10T01%3A00%3A00Z&time_end=2022-07-15T00%3A00%3A00Z&timeStride=1&vertCoord=1&accept=netcdf
 
