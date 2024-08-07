@@ -10,6 +10,7 @@ scratchdir=/tmp/
 
 export DATADIR=silam-dl
 export email="spiderr.roma2@gmail.com"
+export version="v5_9_1"
 
 export gradsnc=`which grads`
 
