@@ -26,8 +26,8 @@ varlist="cnc_POLLEN_ALDER_m22,cnc_POLLEN_BIRCH_m22,cnc_POLLEN_GRASS_m32,cnc_POLL
 run=`date -u -d $basedate +"%FT00:00:00Z"`
 startdate=`date -u -d $basedate +"%FT01:00:00Z"`
 enddate=`date -u -d "120 hours $basedate" +"%FT00:00:00Z"`
-# version="v5_9"
-URL="https://thredds.silam.fmi.fi/thredds/ncss/grid/silam_europe_pollen_${version}/runs/silam_europe_pollen_${version}_RUN_${run}"
+# version var is in environment
+URL="https://thredds.silam.fmi.fi/thredds/ncss/grid/silam_europe_pollen_${version}/runs/silam_europe_pollen_${version}_RUN_${run}" 
 # URL="https://silam.fmi.fi/thredds/ncss/silam_europe_pollen_${version}/runs/silam_europe_pollen_${version}_RUN_${run}" OLD DEPRECATED LINK
 
 
