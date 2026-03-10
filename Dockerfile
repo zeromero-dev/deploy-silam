@@ -5,9 +5,9 @@ FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends wget nco cdo grads
 
-COPY . ./SILAM
+COPY . /SILAM
 
-WORKDIR ./SILAM
+WORKDIR /SILAM
 
 
 
