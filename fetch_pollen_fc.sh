@@ -7,7 +7,7 @@
 # Enjoy!
 
 
-set -u 
+set -u
 set -e
 ncks=ncks
 
@@ -17,7 +17,7 @@ mkdir -p $OUTPUT_DIR/${fcdate}
 cd $OUTPUT_DIR/${fcdate}
 outf="silamFC-$basedate.nc"
 
-varlist="cnc_POLLEN_ALDER_m22,cnc_POLLEN_BIRCH_m22,cnc_POLLEN_GRASS_m32,cnc_POLLEN_MUGWORT_m18,cnc_POLLEN_OLIVE_m28,cnc_POLLEN_RAGWEED_m18"
+# varlist, subset, vertCoord, accept are set in environment file
 
 #bbox="-d lon,32.1,43. -d lat,50.2,62.1"
 
@@ -34,13 +34,12 @@ URL="https://thredds.silam.fmi.fi/thredds/ncss/grid/silam_europe_pollen_${versio
 ## The command that fails, but leaves trace in threds logs, so I could grep your request from there
 
 if [ ! -f $outf ]; then
-  subset="&maxy=0&minx=12&maxx=28&miny=-15"
-  wget --no-check-certificate "$URL?var=${varlist}${subset}&horizStride=1&time_start=${startdate}&time_end=${enddate}&timeStride=1&vertCoord=1&accept=netcdf4&email=$email" -O ${outf}-tmp.nc
+  wget --no-check-certificate "$URL?var=${varlist}${subset}&horizStride=1&time_start=${startdate}&time_end=${enddate}&timeStride=1&vertCoord=${vertCoord}&accept=${accept}&email=$email" -O ${outf}-tmp.nc
 
   # Some attributes are just bulky, coordinates, pole_lat, and  pole_lon confuse python reader and cdo
-  attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a History,global,d,,, -a history_of_appended_files,global,d,,, -a SIMULATION_START_DATE,global,c,c,$run, -a coordinates,,d,,, -a pole_lat,global,d,,, -a pole_lon,global,d,,, " 
+  attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a History,global,d,,, -a history_of_appended_files,global,d,,, -a SIMULATION_START_DATE,global,c,c,$run, -a coordinates,,d,,, -a pole_lat,global,d,,, -a pole_lon,global,d,,, "
   ncatted -h  $attcmd ${outf}-tmp.nc
-  cdo -f nc4 -z zip1 --no_history remapbil,${scriptdir}/UKR-rll.grid ${outf}-tmp.nc ${outf}-tmp2.nc 
+  cdo -f nc4 -z zip1 --no_history remapbil,${scriptdir}/UKR-rll.grid ${outf}-tmp.nc ${outf}-tmp2.nc
   mv ${outf}-tmp2.nc ${outf}
   rm  ${outf}-tmp.nc
 fi
