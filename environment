@@ -14,7 +14,7 @@ export version="v6_1"
 
 # Version-dependent THREDDS query parameters (v6_1 uses rotated pole with south pole at 0°E, 30°S)
 export varlist="cnc_POLLEN_ALDER_m22,cnc_POLLEN_BIRCH_m22,cnc_POLLEN_GRASS_m32,cnc_POLLEN_MUGWORT_m18,cnc_POLLEN_OLIVE_m20,cnc_POLLEN_RAGWEED_m18"
-export subset="&minx=11&maxx=31&miny=-3&maxy=15.9"
+export subset="&maxy=0&minx=12&maxx=28&miny=-15"
 export vertCoord="12.5"
 export accept="netcdf"
 
